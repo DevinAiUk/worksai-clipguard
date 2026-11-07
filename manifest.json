@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "WorksAi ClipGuard",
+  "version": "1.0.0",
+  "description": "Privacy-first clipboard history extension that scrubs API keys and PII before you paste into LLMs.",
+  "permissions": [
+    "storage",
+    "clipboardWrite"
+  ],
+  "action": {
+    "default_popup": "public/index.html",
+    "default_title": "WorksAi ClipGuard"
+  }
+}
