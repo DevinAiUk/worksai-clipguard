@@ -1,0 +1,16 @@
+{
+  "name": "@worksai/worksai-clipguard",
+  "version": "1.0.0",
+  "description": "Privacy-first clipboard history extension that scrubs API keys and PII before you paste into LLMs.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "scripts": {
+    "test": "node --test tests/product.test.mjs",
+    "lint": "node --check src/index.mjs && node --check tests/product.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevinAiUk/worksai-clipguard.git"
+  }
+}
