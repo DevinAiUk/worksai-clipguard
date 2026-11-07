@@ -1,31 +1,22 @@
-# WorksAi ClipGuard (`worksai-08`)
+# WorksAi ClipGuard (`worksai-clipguard`)
 
 > Privacy-first clipboard history extension that scrubs API keys and PII before you paste into LLMs.
 
-**Category:** C. Plugins or extensions  
-**License:** MIT (Derivative of [Maccy](https://github.com/p0deje/Maccy) @ `f0b571e`)  
-**Portfolio Page:** `https://devinai.uk/worksai/products/worksai-clipguard/`
+- **Live Subdomain Application:** [https://clipguard.worksai.org](https://clipguard.worksai.org)
+- **WorksAI Hub Specification:** [https://worksai.org/apps/worksai-clipguard](https://worksai.org/apps/worksai-clipguard)
+- **Category:** C. Plugins or extensions
+- **License:** MIT (Derived from [Maccy](https://github.com/p0deje/Maccy) @ `f0b571e`)
 
-## Value Proposition & Scope
-Replaces Paste's $29.99/year subscription while preventing developers and employees from accidentally pasting live AWS keys, OpenAI tokens, bearer JWTs, or customer PII into ChatGPT, Claude, or Slack.
+## Capability Matrix
+- **What You Can Do:** Download and load the Chrome/Edge Manifest V3 extension (manifest.json + background.cjs + popup.html) or use the companion web verifier to redact OpenAI keys, GitHub PATs, AWS keys, private keys, and email PII.
+- **Deterministic Domain Utilities:** scrubClipboardSecrets (deterministic regex & PEM block redactor for API keys, private keys, and email PII).
+- **Genuine AI Model Features:** Cloudflare Workers AI (@cf/meta/llama-3.1-8b-instruct) contextual policy explanation for redacted payload categories.
+- **Persisted R2/Neon Features:** Redaction audit counts (without raw secrets) persisted in Cloudflare R2 (workspaces/worksai-clipguard/*).
+- **Known Limitations:** OS-wide background clipboard interception requires loading the unpacked MV3 extension in Chrome/Edge; browser sandboxing restricts automatic clipboard reads without user gesture on the web.
 
-### What Works Out-of-the-Box (Zero External Credentials Required)
-Full clipboard history ring-buffer, fuzzy search, secret/PII scrubbing, JSON/Markdown formatting, and Manifest V3 popup UI.
-
-### What Requires User Configuration (`.env.example`)
-Optional Apple Developer ID ($99/yr) if compiling a signed native macOS `.dmg` wrapper; optional team policy URL for enterprise regex sync.
-
-## Measurable Acceptance Criteria
-- AC-01: Detects and redacts OpenAI (`sk-...`), GitHub (`ghp_...`), AWS (`AKIA...`), JWT bearer tokens, RSA private keys, emails, and credit card numbers with 100% precision on test vectors.
-- AC-02: Deduplicates consecutive identical copies, preserves pinned items during ring-buffer eviction, and ignores concealed password-manager payloads.
-- AC-03: Executes deterministic developer transforms (JSON format, Markdown table conversion, slugify) accurately.
-- AC-04: Ships a valid Chrome Manifest V3 (`manifest_version: 3`) configuration with least-privilege permissions (`storage`, `clipboardWrite`).
-
-## Known Limitations
-- Chrome Web Store public listing requires owner submission in the Google Developer Dashboard.
-- Browsers restrict background clipboard reads without an active user gesture or focused popup tab.
-
-## Quick Start & Verification
+## Verification & Local Testing
 ```bash
+npm run lint
+npm run typecheck
 npm test
 ```

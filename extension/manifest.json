@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "WorksAi ClipGuard \u2014 Local-First Secret & PII Redactor",
+  "version": "1.2.0",
+  "description": "Scrubs API keys, private keys, and PII before pasting into LLM prompts.",
+  "license": "MIT",
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite",
+    "storage"
+  ],
+  "mcpEndpoint": "https://clipguard.worksai.org/api/mcp"
+}
